@@ -1,4 +1,4 @@
-# Boilerplate AI Dev
+# O Mago Orquestrador
 
 Template de orquestração com nove papéis em `subagents/`, na raiz do projeto. Todos os provedores usam esse diretório por meio de `AGENTS.md` e `AGENTS-ORQUESTRACAO.md`.
 
