@@ -1,6 +1,19 @@
 {
   "name": "boilerplate-ai-dev",
+  "version": "0.1.0",
   "private": true,
+  "bin": {
+    "boilerplate-ai-dev": "scripts/agents.js"
+  },
+  "files": [
+    "scripts/agents.js",
+    "subagents/",
+    "AGENTS.md",
+    "AGENTS-ORQUESTRACAO.md",
+    "CLAUDE.md",
+    "GEMINI.md",
+    ".codex/config.toml"
+  ],
   "scripts": {
     "agents:init": "node scripts/agents.js init",
     "agents:help": "node scripts/agents.js --help"

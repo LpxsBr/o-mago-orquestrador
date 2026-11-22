@@ -2,7 +2,20 @@
 
 Template de orquestração com nove papéis em `subagents/`, na raiz do projeto. Todos os provedores usam esse diretório por meio de `AGENTS.md` e `AGENTS-ORQUESTRACAO.md`.
 
-## Inicializar um projeto
+
+![tmo](/assets/img/tmo.png)
+
+## Instalar em um projeto existente
+
+Na raiz do projeto de destino, execute com Node.js, npm e Git disponíveis.
+
+```sh
+npm exec --yes --package=git+https://github.com/LpxsBr/boilerplate-ai-dev.git -- boilerplate-ai-dev init .
+```
+
+O npm executa o instalador do repositório sem adicionar dependências ao projeto. Use `init . --providers claude grok cursor` para selecionar provedores. Se já existir um arquivo com conteúdo diferente, o instalador informa o conflito antes de copiar qualquer arquivo.
+
+## Instalar a partir de um clone local
 
 Com Node.js e npm disponíveis, execute a partir deste repositório.
 
