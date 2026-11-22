@@ -1,9 +1,9 @@
 {
-  "name": "boilerplate-ai-dev",
+  "name": "o-mago-orquestrador",
   "version": "0.1.0",
   "private": true,
   "bin": {
-    "boilerplate-ai-dev": "scripts/agents.js"
+    "o-mago-orquestrador": "scripts/agents.js"
   },
   "files": [
     "scripts/agents.js",
