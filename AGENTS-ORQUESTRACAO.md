@@ -31,7 +31,7 @@ Priorize simplicidade técnica, experiência do usuário e valor entregue.
 
 ### Delegação explícita
 - Delegue a subagentes quando a tarefa tiver frentes independentes com ganho real de tempo ou qualidade: exploração ampla, alterações isoladas em módulos distintos ou revisão especializada de segurança e testes.
-- Escolha somente os papéis necessários da tabela abaixo. Ao selecionar um papel, leia apenas o arquivo correspondente em `.agents/agents/<papel>.md` e inclua suas instruções na tarefa delegada.
+- Escolha somente os papéis necessários da tabela abaixo. Use o mecanismo de delegação do provedor e informe o caminho `subagents/<papel>.md` a partir da raiz do projeto. Peça ao subagente que leia o papel e este guia antes de executar. Se ele não tiver acesso aos arquivos, inclua as instruções relevantes na tarefa. Se o cliente não oferecer delegação, leia e aplique o papel diretamente.
 - Defina para cada subagente objetivo, arquivos sob sua responsabilidade e resultado esperado. Nunca atribua o mesmo arquivo para edição simultânea.
 - Mantenha tarefas curtas, triviais ou dependentes de uma decisão anterior com o agente principal.
 - Aguarde os subagentes iniciados, integre as entregas e valide o resultado antes de responder.

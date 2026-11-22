@@ -1,0 +1,8 @@
+{
+  "name": "boilerplate-ai-dev",
+  "private": true,
+  "scripts": {
+    "agents:init": "node scripts/agents.js init",
+    "agents:help": "node scripts/agents.js --help"
+  }
+}

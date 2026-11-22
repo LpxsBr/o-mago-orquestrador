@@ -1,7 +1,3 @@
-<!-- BEGIN:.agents/agents -->
+Leia `AGENTS-ORQUESTRACAO.md`. Os papéis ficam em `subagents/<papel>.md`, a partir da raiz do projeto.
 
-Use os agentes em `.agents/agents/<papel>.md` e siga as diretrizes de `AGENTS-ORQUESTRACAO.md`.
-
-Priorize subagentes para frentes independentes quando houver ganho real de tempo ou qualidade, conforme as regras de orquestração.
-
-<!-- END:.agents/agents -->
+Ao delegar, informe ao subagente o caminho do papel e peça que leia suas instruções antes de executar. Priorize subagentes para frentes independentes quando houver ganho real de tempo ou qualidade.
