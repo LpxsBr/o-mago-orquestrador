@@ -22,7 +22,7 @@ Priorize simplicidade técnica, experiência do usuário e valor entregue.
 12. Priorize entrega funcional sobre complexidade e paralelismo.
 
 ## Orquestração
-- **Simples:** execute diretamente.
+- **Simples:** delegue uma parte bem delimitada a um subagente pertinente.
 - **Especializada:** delegue ao agente competente.
 - **Multidisciplinar:** coordene somente agentes necessários.
 - **Dependente:** resolva contratos antes da implementação.
@@ -30,16 +30,17 @@ Priorize simplicidade técnica, experiência do usuário e valor entregue.
 - **Crítica:** exija revisão e validação proporcionais ao risco.
 
 ### Delegação explícita
-- Delegue a subagentes quando a tarefa tiver frentes independentes com ganho real de tempo ou qualidade: exploração ampla, alterações isoladas em módulos distintos ou revisão especializada de segurança e testes.
+- Em toda tarefa, analise os papéis aplicáveis e acione pelo menos um subagente pertinente quando a delegação estiver disponível e autorizada. Paralelize frentes independentes quando houver ganho real.
 - Escolha somente os papéis necessários da tabela abaixo. Use o mecanismo de delegação do provedor e informe o caminho `subagents/<papel>.md` a partir da raiz do projeto. Peça ao subagente que leia o papel e este guia antes de executar. Se ele não tiver acesso aos arquivos, inclua as instruções relevantes na tarefa. Se o cliente não oferecer delegação, leia e aplique o papel diretamente.
 - Defina para cada subagente objetivo, arquivos sob sua responsabilidade e resultado esperado. Nunca atribua o mesmo arquivo para edição simultânea.
-- Mantenha tarefas curtas, triviais ou dependentes de uma decisão anterior com o agente principal.
+- Em tarefas curtas, delegue uma etapa breve de análise, execução ou validação. Em frentes dependentes, aguarde a decisão anterior antes de delegar a etapa seguinte.
 - Aguarde os subagentes iniciados, integre as entregas e valide o resultado antes de responder.
 
 ### Restrições
 - Um responsável principal por tarefa.
 - Um proprietário por arquivo durante edição.
-- Não invoque agentes sem necessidade.
+- Limite a quantidade de subagentes ao necessário para a tarefa.
+- Subagentes executam o escopo recebido. A obrigação de iniciar a delegação cabe ao agente principal.
 - Não carregue instruções de agentes não utilizados.
 - Não repita contexto compartilhado.
 - Não duplique trabalho entre agentes.
@@ -77,7 +78,7 @@ Agentes representam responsabilidades, não tecnologias específicas.
 - `design` define experiência, padrões visuais, acessibilidade e comportamento da interface.
 - `frontend` e `mobile` implementam conforme padrões e tecnologias existentes.
 - Mudanças significativas de interface devem considerar `design`.
-- Correções visuais simples não exigem delegação.
+- Em correções visuais simples, selecione um papel conforme o tipo de correção.
 - Preserve consistência visual entre telas e plataformas.
 - Evite interfaces genéricas, artificiais ou com aparência de IA.
 - Priorize layouts modernos, sofisticados, humanizados e responsivos.
@@ -87,8 +88,8 @@ Agentes representam responsabilidades, não tecnologias específicas.
 1. **Entender:** objetivo e critérios de aceite.
 2. **Inspecionar:** contexto, dependências e padrões.
 3. **Planejar:** menor solução viável.
-4. **Delegar:** somente quando necessário.
-5. **Implementar:** mudanças limitadas ao escopo.
+4. **Delegar:** acione pelo menos um subagente pertinente quando disponível e autorizado. Se precisar executar diretamente, informe a limitação na entrega.
+5. **Executar:** integre a entrega delegada e conclua o trabalho dentro do escopo.
 6. **Validar:** comportamento, qualidade e regressões.
 7. **Entregar:** resultado, evidências e pendências.
 

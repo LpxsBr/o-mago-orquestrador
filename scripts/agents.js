@@ -11,6 +11,8 @@ const providerConfig = {
   claude: 'CLAUDE.md',
   gemini: 'GEMINI.md',
 };
+const blockStart = '<!-- o-mago-orquestrador:start -->';
+const blockEnd = '<!-- o-mago-orquestrador:end -->';
 
 const usage = `Usage: node scripts/agents.js init <destination> [--providers <provider> ...]
 Providers: ${providers.join(', ')}
@@ -62,7 +64,29 @@ function install(destination, selectedProviders) {
     const current = existingContent(destination, file);
     if (current === undefined) {
       pending.push({ file, content });
-    } else if (!current.equals(content)) {
+    } else if (current.equals(content)) {
+      continue;
+    } else if (path.extname(file) === '.md') {
+      const existingText = current.toString('utf8').replace(/\r\n/g, '\n');
+      const instructions = content.toString('utf8').trimEnd();
+      const lines = existingText.split('\n');
+      const start = lines.indexOf(blockStart);
+      const end = lines.indexOf(blockEnd);
+      if (start !== -1 && end > start) {
+        continue;
+      }
+      if (start !== -1 || end !== -1) {
+        conflicts.push(file);
+        continue;
+      }
+      if (!`\n${existingText}\n`.includes(`\n${instructions}\n`)) {
+        pending.push({
+          file,
+          content: `\n\n${blockStart}\n\n${instructions}\n\n${blockEnd}\n`,
+          append: true,
+        });
+      }
+    } else {
       conflicts.push(file);
     }
   }
@@ -70,10 +94,14 @@ function install(destination, selectedProviders) {
     throw new Error(`Conflicting files: ${conflicts.join(', ')}`);
   }
 
-  for (const { file, content } of pending) {
+  for (const { file, content, append } of pending) {
     const target = path.join(destination, file);
     fs.mkdirSync(path.dirname(target), { recursive: true });
-    fs.writeFileSync(target, content, { flag: 'wx' });
+    if (append) {
+      fs.appendFileSync(target, content);
+    } else {
+      fs.writeFileSync(target, content, { flag: 'wx' });
+    }
   }
   console.log(`${pending.length} file(s) written in ${destination}`);
 }
